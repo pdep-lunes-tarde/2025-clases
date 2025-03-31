@@ -9,7 +9,7 @@
 
 - Preparar el ambiente como dice en el TP-0: https://classroom.github.com/a/EsrXAn7I
 
-- Hacer el TP-1: https://classroom.github.com/a/SkDLRd_v
+- Hacer el TP-1: https://classroom.github.com/a/0YT6Fp4Q
 
 - Unirse al servidor de discord: https://discord.gg/44xDEtmn
 

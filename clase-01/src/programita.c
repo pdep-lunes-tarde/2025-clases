@@ -1,20 +1,24 @@
  #include <stdio.h>
 
-int f(int a[], int b) {
-  int i, j = 0;
-
-  for (i=0; i < b; i++) {
-    if(a[i] % 2 == 0){
-      j = j + 1;
-    }
-  }
-
-  return j;
+int esPar(int numero) {
+  return numero % 2 == 0;
 }
 
+int contarPares(int numeros[], int tamanio) {
+  int i, contador = 0;
+
+  for (i=0; i < tamanio; i++) {
+    if(esPar(numeros[i]))
+      contador++;
+  }
+
+  return contador;
+}
+
+
 int main() {
-    int a[]= {1,2,3,4,5,6,7,8,9,10};
-    int j = f(a, 10);
+    int a[]= {2,2,4,4,2,6,6,8,6,2};
+    int j = contarPares(a, 10);
 
     printf("%d", j);
 
