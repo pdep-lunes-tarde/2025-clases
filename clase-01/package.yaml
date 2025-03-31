@@ -6,8 +6,6 @@ author:              "Author name here"
 maintainer:          "example@example.com"
 copyright:           "2019 Author name here"
 
-extra-source-files:
-- ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package

@@ -8,7 +8,6 @@ import PdePreludat
 
 -- Declaratividad y expresividad
 
-
 -- int f(int a[], int b) {
 --   int i, j = 0;
 
