@@ -2,11 +2,11 @@
 
 ## Material de la clase
 
-- Slides: https://docs.google.com/presentation/d/1ipECQ6-s8kes81NjssT6ozN0Il1SWpp9-oEwfobNm00/edit?usp=sharing
+- Slides: https://docs.google.com/presentation/d/1GmxbIh5c-jCklTTFClHxrFbHRKWPK_EmG7iJDHJ8MLQ/edit?usp=sharing
 
 ## Para la clase que viene
 
-- Hacer el [TP-2](https://classroom.github.com/a/HLgLQJoj)
+- Hacer el [TP-2](https://classroom.github.com/a/AQsQAP4o)
 
 ## ¿Qué mas puedo leer, ver o practicar?
 
