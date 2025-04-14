@@ -5,6 +5,9 @@
 - Slides: https://docs.google.com/presentation/d/1FOfRWf5FVHLXfwBAK2xIddnXxTEPoh4S8wNp3Vmi_pc/edit?usp=sharing
 - Código: Acá mismo :D.
 
+
+
+
 ## Para la clase que viene
 
 - Hacer el [TP-3](https://classroom.github.com/a/KG0iIWvx)
