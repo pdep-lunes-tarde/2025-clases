@@ -3,17 +3,21 @@ import PdePreludat
 import Library
 import Test.Hspec
 
-crearCarta :: Number -> String -> Carta
-crearCarta unNumero unColor = (unNumero, unColor)
+crearCartaNormal :: Number -> Color -> Carta
+crearCartaNormal unNumero unColor =
+  UnaCarta unColor (CartaNormal unNumero)
 
 ceroAzul :: Carta
-ceroAzul = crearCarta 0 "Azul"
+ceroAzul = crearCartaNormal 0 Azul
 
 ceroVerde :: Carta
-ceroVerde = crearCarta 0 "Verde"
+ceroVerde = crearCartaNormal 0 Verde
 
 sieteAzul :: Carta
-sieteAzul = crearCarta 7 "Azul"
+sieteAzul = crearCartaNormal 7 Azul
+
+mas4Azul :: Carta
+mas4Azul = UnaCarta Azul Mas4
 
 correrTests :: IO ()
 correrTests = hspec $ do
@@ -24,3 +28,9 @@ correrTests = hspec $ do
       sePuedeJugarEncimaDe ceroAzul sieteAzul `shouldBe` True
     it "Una carta no se puede jugar encima de otra si tiene distinto color y numero" $ do
       sePuedeJugarEncimaDe sieteAzul ceroVerde `shouldBe` False
+    it "Una carta se puede jugar encima de un mas 4 si tiene el mismo color" $ do
+      sePuedeJugarEncimaDe mas4Azul sieteAzul `shouldBe` True
+    it "Una carta no se puede jugar encima de un mas 4 si tiene color distinto" $ do
+      sePuedeJugarEncimaDe mas4Azul ceroVerde `shouldBe` False
+    it "Un mas4 se puede jugar encima de cualquier carta" $ do
+      sePuedeJugarEncimaDe ceroVerde mas4Azul `shouldBe` True

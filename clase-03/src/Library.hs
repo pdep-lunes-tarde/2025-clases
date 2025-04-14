@@ -83,18 +83,55 @@ pesoPino' alturaPino = implementame
 -- pesoPino alturaPino =
 --    pesoParteInferior alturaPino + pesoParteSuperior alturaPino
 
-type Carta = (Number, String)
+-- type Carta = (Number, String)
 
 
-color :: Carta -> String
--- color carta = snd carta
--- Pattern matching:
-color (unNumero, unColor) = unColor
+color :: Carta -> Color
+-- seria así si type Carta = (Number, String):
+      -- color carta = snd carta
+      -- Pattern matching:
+      -- color (unNumero, unColor) = unColor
+color (UnaCarta unColor unTipo) = unColor
 
 numero :: Carta -> Number
-numero (unNumero, unColor) = unNumero
+numero (UnaCarta unColor (CartaNormal unNumero)) = unNumero
+numero (UnaCarta unColor Mas4) = error "El mas 4 no tiene número"
+
+mismoColor :: Carta -> Carta -> Bool
+mismoColor unaCarta otraCarta =
+   color unaCarta == color otraCarta
+
+mismoNumero :: Carta -> Carta -> Bool
+mismoNumero (UnaCarta _ Mas4) _ = False
+mismoNumero _ (UnaCarta _ Mas4) = False
+mismoNumero unaCarta otraCarta =
+   numero unaCarta == numero otraCarta
 
 sePuedeJugarEncimaDe :: Carta -> Carta -> Bool
+sePuedeJugarEncimaDe _ (UnaCarta _ Mas4) = True
 sePuedeJugarEncimaDe carta cartaAJugar =
-   color carta == color cartaAJugar ||
-   numero carta == numero cartaAJugar
+   mismoColor carta cartaAJugar ||
+   mismoNumero carta cartaAJugar
+
+-- type Jugador = (Number, String)
+-- juani = (3, "Juani")
+
+juani :: Jugador
+juani = UnJugador 3 "Juani"
+
+data Jugador =
+   UnJugador Number String deriving (Eq, Show)
+data Carta =
+   UnaCarta Color TipoDeCarta deriving (Eq, Show)
+data TipoDeCarta =
+   Mas4 | CartaNormal Number
+   deriving (Eq, Show)
+-- sieteAzul = UnaCarta Azul (CartaNormal 7)
+
+data Color =
+   Azul |
+   Rojo |
+   Verde |
+   Amarillo deriving (Eq, Show)
+
+-- Agregamos el +4
