@@ -5,7 +5,7 @@ import Test.Hspec
 
 crearCartaNormal :: Number -> Color -> Carta
 crearCartaNormal unNumero unColor =
-  UnaCarta unColor (CartaNormal unNumero)
+  CartaNumerica unNumero unColor
 
 ceroAzul :: Carta
 ceroAzul = crearCartaNormal 0 Azul
@@ -17,7 +17,7 @@ sieteAzul :: Carta
 sieteAzul = crearCartaNormal 7 Azul
 
 mas4Azul :: Carta
-mas4Azul = UnaCarta Azul Mas4
+mas4Azul = Mas4 Azul
 
 correrTests :: IO ()
 correrTests = hspec $ do
