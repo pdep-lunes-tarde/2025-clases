@@ -12,6 +12,9 @@ https://pbv.github.io/haskelite/site/index.html
 ## Para la clase que viene
 
 - Hacer el [TP-4](https://classroom.github.com/a/jGntrckY)
+- Armar grupos de 4 personas para el TP integrador.
+    - Una vez tengan el grupo, pueden usar el comando /create_group en discord para tener el canal de texto y de voz.
+- Arrancar el [TP-Integrador](https://classroom.github.com/a/JPJ55iIS)
 
 ## ¿Qué mas puedo leer, ver o practicar?
 
