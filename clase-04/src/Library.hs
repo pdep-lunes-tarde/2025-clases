@@ -17,10 +17,41 @@ multiplicar unNumero otroNumero
 
 -- Listas
 
+xs :: [Number]
+xs = [1,2,3,4,5]
+
+data Carta = Carta Color Number deriving (Eq, Show)
+data Color = Azul | Rojo | Verde | Amarillo deriving (Eq, Show)
+
+color :: Carta -> Color
+color (Carta unColor _) = unColor
+
+-- estaVacia
+-- estaVacia ListaVacia =
+--     implementame
+-- estaVacia (ListaCon cabeza cola) =
+--     implementame
+
+-- [1,2,3]
+-- ==
+-- 1 : 2 : 3 : []
+
+estaVacia :: [a] -> Bool
+estaVacia [] = True
+estaVacia (cabeza : cola) = False
+
 -- primero [1,2,3] deberia ser 1
-primero = implementame
+primero :: [a] -> a
+primero [] = error "La lista estaba vacía"
+primero (cabeza:cola) = cabeza
+
+resto :: [a] -> [a]
+resto (cabeza:cola) = cola
+------  (  1 : [] )
+-- resto [1]    ---> []
 
 -- ultimo ["hola", "que", "tal"] deberia ser "tal"
+ultimo :: [a] -> a
 ultimo = implementame
 
 -- cantidad ["hola", "que", "tal"] deberia ser 3
