@@ -4,8 +4,16 @@ import PdePreludat
 -- Recursividad
 -- https://pbv.github.io/haskelite/site/index.html
 
+factorial :: Number -> Number
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
 -- multiplicar 2 por 3 deberia ser equivalente a 2 + 2 + 2, o sea 6
-multiplicar = implementame
+multiplicar :: Number -> Number -> Number
+multiplicar _ 0 = 0
+multiplicar unNumero otroNumero
+    | otroNumero > 0 = unNumero + multiplicar unNumero (otroNumero - 1)
+    | otroNumero < 0 = negate (multiplicar unNumero (negate otroNumero))
 
 -- Listas
 

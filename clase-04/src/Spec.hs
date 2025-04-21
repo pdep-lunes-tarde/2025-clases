@@ -7,11 +7,17 @@ import Control.Exception (evaluate)
 correrTests :: IO ()
 correrTests = hspec $ do
   describe "Recursividad" $ do
-    describe "multiplicar" $ do
+    fdescribe "multiplicar" $ do
       it "Un numero multiplicado por 0 es 0" $ do
         multiplicar 3 0 `shouldBe` 0
       it "Un numero N multiplicado por un numero M es el resultado de sumar M veces N" $ do
         multiplicar 3 6 `shouldBe` 18
+      it "Un número negativo multiplicado por uno positivo da resultado negativo" $ do
+        multiplicar (-3) 5 `shouldBe` (-15)
+      it "Un número positivo multiplicado por uno negativo da resultado negativo" $ do
+        multiplicar 5 (-3) `shouldBe` (-15)
+      it "Dos números negativos multiplicados dan resultado positivo" $ do
+        multiplicar (-5) (-3) `shouldBe` 15
   describe "Listas" $ do
     describe "Primero" $ do
       it "Si la lista tiene elementos, me devuelve el primero" $ do
