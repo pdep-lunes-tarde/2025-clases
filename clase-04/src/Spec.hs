@@ -7,7 +7,7 @@ import Control.Exception (evaluate)
 correrTests :: IO ()
 correrTests = hspec $ do
   describe "Recursividad" $ do
-    fdescribe "multiplicar" $ do
+    describe "multiplicar" $ do
       it "Un numero multiplicado por 0 es 0" $ do
         multiplicar 3 0 `shouldBe` 0
       it "Un numero N multiplicado por un numero M es el resultado de sumar M veces N" $ do
@@ -36,18 +36,18 @@ correrTests = hspec $ do
         cantidad ["uno", "dos", "tres", "cuatro"] `shouldBe` 4
     describe "Tiene" $ do
       it "Si el elemento esta contenido en la lista, es True" $ do
-        tiene "hola" ["hola", "mundo!"] `shouldBe` True
+        contiene "hola" ["hola", "mundo!"] `shouldBe` True
       it "Si el elemento no esta contenido en la lista, es False" $ do
-        tiene "pdep" ["hola", "mundo!"] `shouldBe` False
+        contiene "pdep" ["hola", "mundo!"] `shouldBe` False
     describe "agregar" $ do
       it "Devuelve la lista con el elemento agregado al principio" $ do
         agregar 'a' "bc" `shouldBe` "abc"
     describe "agregarAlFinal" $ do
-      it "Devuelve la lista con el elemento agregado al principio" $ do
-        agregar 'z' "abc" `shouldBe` "abcz"
+      it "Devuelve la lista con el elemento agregado al final" $ do
+        agregarAlFinal 'z' "abc" `shouldBe` "abcz"
     describe "agregarTodos" $ do
       it "Agrega todos los elementos de la segunda lista a la primera al final de la misma" $ do
-        agregar [1,2,3] [4,5,6] `shouldBe` [1,2,3,4,5,6]
+        agregarTodos [1,2,3] [4,5,6] `shouldBe` [1,2,3,4,5,6]
       
     
 
