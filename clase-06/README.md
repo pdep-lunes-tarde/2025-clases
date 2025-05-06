@@ -9,6 +9,11 @@
 
 - Hacer el TP-6: https://classroom.github.com/a/geFPh3kp
 
+## Para la clase del 19/05
+
+- Hacer las correcciones que les hayamos mandado del TP integrador +
+- **Entrega 2 del TP Integrador**: se actualizó el enunciado en el mismo documento que ya estaban trabajando: https://docs.google.com/document/d/1u5JAzb6tDq5am7A0qGJ-pnw2XEIvAJLL6dtFwK-hCtM/edit?usp=sharing
+
 ## ¿Qué mas puedo leer, ver o practicar?
 
 ## Laboratorio de funciones
