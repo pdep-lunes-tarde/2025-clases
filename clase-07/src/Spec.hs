@@ -10,7 +10,7 @@ correrTests = hspec $ do
     it "And con evaluación ansiosa falla si se le pasa False y una expresión que falla" $ do
       deberiaFallar (andEager False (error "estoy siendo evaluado"))
     it "And con evaluación perezosa retorna False si se le pasa False y una expresión que falla" $ do
-      andLazy False (error "no estoy siendo evaluado") `shouldBe` True
+      andLazy False (error "no estoy siendo evaluado") `shouldBe` False
 
 deberiaFallar :: a -> Expectation
 deberiaFallar a = evaluate a `shouldThrow` anyException
