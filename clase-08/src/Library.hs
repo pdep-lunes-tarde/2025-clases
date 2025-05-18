@@ -5,10 +5,10 @@ import Data.List (stripPrefix)
 
 
 esVocal :: Char -> Bool
-esVocal letra = toUpper letra `elem` "AEIOUÁÉÍÓÚ"
+esVocal letra = toUpper letra `elem` "AEIOUÁÉÍÓÚÜ"
 
 esVocalDebil :: Char -> Bool
-esVocalDebil letra = toUpper letra `elem` "IU"
+esVocalDebil letra = toUpper letra `elem` "IUÜ"
 
 esVocalFuerte :: Char -> Bool
 esVocalFuerte letra = esVocal letra && not (esVocalDebil letra)
