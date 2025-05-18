@@ -49,4 +49,6 @@ correrTests = hspec $ do
         primeraSilaba "allanamiento" `shouldBe` "a"
       it "'ch' tiene un solo fonema, por lo que se comporta como grupo consonántico" $ do
         primeraSilaba "achatado" `shouldBe` "a"
+      it "'sh' tiene un solo fonema, por lo que se comporta como grupo consonántico" $ do
+        primeraSilaba "Mushu" `shouldBe` "Mu"
       
