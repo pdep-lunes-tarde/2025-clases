@@ -45,4 +45,8 @@ correrTests = hspec $ do
         primeraSilaba "guerra" `shouldBe` "gue"
       it "la primera silaba de una palabra CVCC es la misma palabra" $ do
         primeraSilaba "trans" `shouldBe` "trans"
+      it "'ll' tiene un solo fonema, por lo que se comporta como grupo consonántico" $ do
+        primeraSilaba "allanamiento" `shouldBe` "a"
+      it "'ch' tiene un solo fonema, por lo que se comporta como grupo consonántico" $ do
+        primeraSilaba "achatado" `shouldBe` "a"
       

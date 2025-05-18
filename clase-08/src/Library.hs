@@ -24,7 +24,7 @@ esHiato unaLetra otraLetra = all esVocalFuerte [unaLetra, otraLetra]
 
 esGrupoConsonantico :: Char -> Char -> Bool
 esGrupoConsonantico unaConsonante otraConsonante = [unaConsonante, otraConsonante] `elem` [
-        "bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "pl", "pr", "tl", "tr", "rr"
+        "bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "pl", "pr", "tl", "tr", "rr", "ll", "ch"
     ]
 
 primeraSilaba :: String -> String
