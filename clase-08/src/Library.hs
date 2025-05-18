@@ -30,14 +30,11 @@ esGrupoConsonantico unaConsonante otraConsonante = [unaConsonante, otraConsonant
 primeraSilaba :: String -> String
 primeraSilaba [l] = [l]
 primeraSilaba (c:resto)           | esConsonante c                                  = c : primeraSilaba resto
-primeraSilaba [v1, v2, c]         | esConsonante c && esDiptongo v1 v2              = [v1, v2, c]
 primeraSilaba (v: cs)             | all esConsonante cs && esVocal v                = v : cs
 primeraSilaba (v1:v2:resto)       | esHiato v1 v2                                   = [v1]
-primeraSilaba (v1:v2:c1:c2:resto) | esGrupoConsonantico c1 c2 && esDiptongo v1 v2   = [v1, v2]
-primeraSilaba (v1:v2:c1:c2:resto) | all esConsonante [c1,c2] && esDiptongo v1 v2    = [v1, v2, c1]
+primeraSilaba (v1:v2:resto)       | esDiptongo v1 v2                                = v1 : primeraSilaba (v2 : resto)
 primeraSilaba (v:c1:c2:resto)     | esGrupoConsonantico c1 c2 && esVocal v          = [v]
 primeraSilaba (v:c1:c2:resto)     | all esConsonante [c1,c2] && esVocal v           = [v, c1]
-primeraSilaba (v1:v2:resto)       | esDiptongo v1 v2                                = [v1, v2]
 primeraSilaba (v:c:resto)         | esVocal v && esConsonante c                     = [v]
 
 
