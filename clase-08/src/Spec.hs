@@ -51,8 +51,10 @@ correrTests = hspec $ do
         primeraSilaba "achatado" `shouldBe` "a"
       it "'sh' tiene un solo fonema, por lo que se comporta como grupo consonántico" $ do
         primeraSilaba "Mushu" `shouldBe` "Mu"
-      it "la ü se comporta siempre como vocal débil" $ do
-        enSilabas "paragüero" `shouldBe` ["pa", "ra", "güe", "ro"]
   describe "enSilabas" $ do
     it "una palabra separada en silabas devuelve una lista con cada una de las silabas de la palabra" $ do
       enSilabas "aeroplano" `shouldBe` ["a", "e", "ro", "pla", "no"]
+    it "la ü se comporta siempre como vocal débil" $ do
+        enSilabas "paragüero" `shouldBe` ["pa", "ra", "güe", "ro"]
+    it "un caracter que no es una letra nunca forma parte de una silaba" $ do
+        enSilabas "El bonsái es pequeño" `shouldBe` ["El", "bon", "sái", "es", "pe", "que", "ño"]

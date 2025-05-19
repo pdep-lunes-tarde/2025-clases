@@ -1,6 +1,6 @@
 module Library where
 import PdePreludat
-import Data.Char (toUpper)
+import Data.Char (toUpper, isAlpha)
 import Data.List (isPrefixOf)
 
 
@@ -57,7 +57,10 @@ eliminarPrefijo prefijo palabra
     | prefijo `isPrefixOf` palabra = drop (length prefijo) palabra
     | otherwise = palabra
 
+palabraEnSilabas :: String -> [String]
+palabraEnSilabas "" = []
+palabraEnSilabas palabra = primeraSilaba palabra : enSilabas (eliminarPrefijo (primeraSilaba palabra) palabra)
+
 enSilabas :: String -> [String]
-enSilabas "" = []
-enSilabas palabra = primeraSilaba palabra : enSilabas (eliminarPrefijo (primeraSilaba palabra) palabra)
+enSilabas = concatMap palabraEnSilabas . words
 
