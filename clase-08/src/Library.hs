@@ -190,7 +190,7 @@ bonusPorCriaturaAereaParaJuanino criatura
 dantelero :: Jurado
 dantelero = Jurado {
     criterioDeAprobacion = all (terminaConAlguno ["ero", "era", "ino", "ina"]) . words . nombre,
-    puntuacion = (2*) . length . enSilabas . nombre
+    puntuacion = (2*) . cantidadDeSilabas . nombre
 }
 
 eminini :: Jurado -> Jurado
