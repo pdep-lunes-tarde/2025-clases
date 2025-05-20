@@ -1,7 +1,10 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Eta reduce" #-}
+{-# HLINT ignore "Use map once" #-}
 module Library where
 import PdePreludat
 import Data.Char (toUpper, isAlpha)
-import Data.List (isPrefixOf)
+import Data.List (isPrefixOf, isSuffixOf, sortOn)
 
 
 esVocal :: Char -> Bool
@@ -21,26 +24,6 @@ esDiptongo unaLetra otraLetra = all esVocal [unaLetra, otraLetra] && any esVocal
 
 esHiato :: Char -> Char -> Bool
 esHiato unaLetra otraLetra = all esVocalFuerte [unaLetra, otraLetra]
-
-esGrupoConsonantico :: Char -> Char -> Bool
-esGrupoConsonantico unaConsonante otraConsonante
-    | unaConsonante == 'b' && otraConsonante == 'l' = True
-    | unaConsonante == 'b' && otraConsonante == 'r' = True
-    | unaConsonante == 'c' && otraConsonante == 'l' = True
-    | unaConsonante == 'c' && otraConsonante == 'r' = True
-    | unaConsonante == 'd' && otraConsonante == 'r' = True
-    | unaConsonante == 'f' && otraConsonante == 'l' = True
-    | unaConsonante == 'f' && otraConsonante == 'r' = True
-    | unaConsonante == 'g' && otraConsonante == 'l' = True
-    | unaConsonante == 'p' && otraConsonante == 'l' = True
-    | unaConsonante == 'p' && otraConsonante == 'r' = True
-    | unaConsonante == 't' && otraConsonante == 'l' = True
-    | unaConsonante == 't' && otraConsonante == 'r' = True
-    | unaConsonante == 'r' && otraConsonante == 'r' = True
-    | unaConsonante == 'l' && otraConsonante == 'l' = True
-    | unaConsonante == 'c' && otraConsonante == 'h' = True
-    | unaConsonante == 's' && otraConsonante == 'h' = True
-    | otherwise = False
 
 primeraSilaba :: String -> String
 primeraSilaba [l] = [l]
@@ -64,3 +47,210 @@ palabraEnSilabas palabra = primeraSilaba palabra : enSilabas (eliminarPrefijo (p
 enSilabas :: String -> [String]
 enSilabas = concatMap palabraEnSilabas . words
 
+-- Punto 1
+
+esGrupoConsonantico :: Char -> Char -> Bool
+esGrupoConsonantico unaConsonante otraConsonante =
+    [unaConsonante, otraConsonante] `elem` [
+        "bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "pl", "pr", "tl", "tr", "rr", "ll", "ch", "sh"
+    ]
+
+-- Punto 2
+
+data Criatura = Criatura {
+    nombre :: String,
+    tipo :: TipoCriatura,
+    resistencia :: Number,
+    fuerza :: Number,
+    habilidad :: Habilidad
+} deriving Show
+
+data TipoCriatura = Aereo | Terrestre | Submarino deriving (Eq, Show)
+
+type Habilidad = Criatura -> Criatura
+
+lambidiniCalculini :: Criatura
+lambidiniCalculini = Criatura "Lambdini Calculini" Terrestre 6 10 reduccionEta
+
+reduccionEta :: Habilidad
+reduccionEta = transformarFuerza (/2) . transformarResistencia (/2)
+
+transformarFuerza :: (Number -> Number) -> Criatura -> Criatura
+transformarFuerza cambio criatura = criatura { fuerza = cambio (fuerza criatura) }
+
+aumentarFuerza :: Number -> Criatura -> Criatura
+aumentarFuerza cantidad = transformarFuerza (+cantidad)
+
+transformarResistencia :: (Number -> Number) -> Criatura -> Criatura
+transformarResistencia cambio criatura = criatura { resistencia = cambio (resistencia criatura) }
+
+aumentarResistencia :: Number -> Criatura -> Criatura
+aumentarResistencia cantidad = transformarResistencia (+cantidad)
+
+disminuirResistencia :: Number -> Criatura -> Criatura
+disminuirResistencia cantidad = transformarResistencia (cantidad `subtract`)
+
+pepitaObjetoObjetina :: Criatura
+pepitaObjetoObjetina = Criatura "Pepita Objeto Objetina" Aereo 7 6 polimorfismo
+
+polimorfismo :: Habilidad
+polimorfismo criatura = cambiarTipoA (tipoSiguientePorPolimorfismo (tipo criatura)) criatura
+
+cambiarTipoA :: TipoCriatura -> Criatura -> Criatura
+cambiarTipoA nuevoTipo criatura = criatura { tipo = nuevoTipo }
+
+tipoSiguientePorPolimorfismo :: TipoCriatura -> TipoCriatura
+tipoSiguientePorPolimorfismo Aereo = Terrestre
+tipoSiguientePorPolimorfismo Terrestre = Submarino
+tipoSiguientePorPolimorfismo Submarino = Aereo
+
+haskellinoCurrino :: Criatura
+haskellinoCurrino = Criatura "Haskellino Currino" Submarino 10 3 lazyEvaluation
+
+lazyEvaluation :: Habilidad
+lazyEvaluation criatura = criatura { habilidad = id }
+
+-- Punto 3
+
+type Entrenamiento = Criatura -> Criatura
+
+-- a
+darAlas :: Entrenamiento
+darAlas = cambiarTipoA Aereo
+
+
+-- b
+descansar :: Number -> Entrenamiento
+descansar horas = transformarResistencia (+horas)
+
+-- c
+levantarMancuernas :: Number -> Entrenamiento
+levantarMancuernas peso criatura
+    | peso * 2 < resistencia criatura = aumentarFuerza peso criatura
+    | otherwise = aumentarFuerza 1 . disminuirResistencia 1 $ criatura
+
+-- d
+obtenerHabilidad :: Habilidad -> Entrenamiento
+obtenerHabilidad nuevaHabilidad criatura = criatura { habilidad = nuevaHabilidad . habilidad criatura }
+
+-- e
+type Combatientes = (Criatura, Criatura)
+
+tirarseHabilidades :: Combatientes -> Combatientes
+tirarseHabilidades (criatura, otraCriatura) = (habilidad criatura otraCriatura, habilidad otraCriatura criatura)
+
+atacarse :: Combatientes -> Combatientes
+atacarse (criatura, otraCriatura) = (criatura `recibirAtaqueDe` otraCriatura, otraCriatura `recibirAtaqueDe` criatura)
+
+recibirAtaqueDe :: Criatura -> Criatura -> Criatura
+recibirAtaqueDe defensor atacante = disminuirResistencia (fuerza atacante) defensor
+
+resolverCombate :: Combatientes -> Criatura
+resolverCombate (criatura, otraCriatura)
+    | resistencia criatura > resistencia otraCriatura = obtenerHabilidad (habilidad otraCriatura) criatura
+    | otherwise = criatura
+
+combatir :: Criatura -> Entrenamiento
+combatir criatura otraCriatura = resolverCombate . atacarse . tirarseHabilidades $ (criatura, otraCriatura)
+
+-- Punto 4
+-- a)
+data Jurado = Jurado {
+    criterioDeAprobacion :: Criatura -> Bool,
+    puntuacion :: Criatura -> Number
+}
+
+ganadorDeConcurso :: Jurado -> [Criatura] -> Criatura
+ganadorDeConcurso jurado = last . sortOn (puntuacion jurado) . filtrarPorCriterio jurado
+
+filtrarPorCriterio :: Jurado -> [Criatura] -> [Criatura]
+filtrarPorCriterio jurado criaturas
+    | none (criterioDeAprobacion jurado) criaturas = criaturas
+    | otherwise = filter (criterioDeAprobacion jurado) criaturas
+
+none :: (a -> Bool) -> [a] -> Bool
+none condition list = not . any condition $ list
+
+--b)
+
+esAerea :: Criatura -> Bool
+esAerea criatura = tipo criatura == Aereo
+
+juanino :: Jurado
+juanino = Jurado {
+    criterioDeAprobacion = \criatura -> resistencia criatura > 30 || esAerea criatura,
+    puntuacion = \criatura -> fuerza criatura + bonusPorCriaturaAereaParaJuanino criatura
+}
+
+bonusPorCriaturaAereaParaJuanino :: Criatura -> Number
+bonusPorCriaturaAereaParaJuanino criatura
+    | esAerea criatura = 50
+    | otherwise = 0
+
+dantelero :: Jurado
+dantelero = Jurado {
+    criterioDeAprobacion = all (terminaConAlguno ["ero", "era", "ino", "ina"]) . words . nombre,
+    puntuacion = (2*) . length . enSilabas . nombre
+}
+
+eminini :: Jurado -> Jurado
+eminini referencia = Jurado {
+    criterioDeAprobacion = not . criterioDeAprobacion referencia,
+    puntuacion = negate . puntuacion referencia
+}
+
+terminaConAlguno :: [String] -> String -> Bool
+terminaConAlguno sufijos palabra = any (`isSuffixOf` palabra) sufijos
+
+-- Punto 5
+-- a)
+
+dropEnd :: Number -> [a] -> [a]
+dropEnd n = reverse . drop n . reverse
+
+vocales :: [Char] -> [Char]
+vocales = filter esVocal
+
+cantidadDeSilabas :: String -> Number
+cantidadDeSilabas = length . enSilabas
+
+cantidadDeSilabasCumple :: (Number -> Bool) -> String -> Bool
+cantidadDeSilabasCumple condicion palabra = condicion . cantidadDeSilabas $ palabra
+
+reemplazarSi :: (a -> Bool) -> a -> a -> a
+reemplazarSi condicion nuevo viejo
+    | condicion viejo = nuevo
+    | otherwise = viejo
+
+aNombreDeCriatura :: String -> String
+aNombreDeCriatura palabra
+    | cantidadDeSilabasCumple (>=3) palabra && (all (=='o') . vocales . last . enSilabas $ palabra) =
+        (++ "nino") . concat . dropEnd 2 . enSilabas $ palabra
+    | cantidadDeSilabasCumple (==1) palabra =
+        concat [palabra, "laler", [last . vocales $ palabra]]
+    | cantidadDeSilabasCumple (==2) palabra =
+        concat [
+            head (enSilabas palabra),
+            map (reemplazarSi esVocal 'i') (enSilabas palabra !! 1),
+            "ni"
+        ]
+    | otherwise = palabra ++ "pedepe"
+
+-- b)
+fabricarCriatura :: [String] -> [Entrenamiento] -> Habilidad -> Jurado -> Criatura
+fabricarCriatura palabras entrenamientos habilidad jurado =
+    ganadorDeConcurso jurado
+    . map (\criatura -> foldr ($) criatura entrenamientos)
+    . map (\nombre -> Criatura {
+        nombre = nombre,
+        fuerza = length . filter esVocalFuerte $ nombre,
+        resistencia = cantidadDeSilabas nombre,
+        habilidad = habilidad,
+        tipo = cycle [Submarino, Aereo, Terrestre] !! length nombre
+    })
+    . map (\(unaPalabra, otraPalabra) -> aNombreDeCriatura unaPalabra ++ " " ++ aNombreDeCriatura otraPalabra)
+    . combinacionesConSiguientes
+    $ palabras
+
+combinacionesConSiguientes :: [String] -> [(String, String)]
+combinacionesConSiguientes palabras = zip palabras (tail palabras)
