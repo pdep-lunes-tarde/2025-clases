@@ -1,4 +1,16 @@
-# Clase 6 - Lazy evaluation (Evaluación perezosa)
+# Clase 7 - Lazy Evaluation (Evaluación perezosa)
 
 ## Material de la clase
-Próximamente...
+
+- Slides: https://docs.google.com/presentation/d/1ReX5CjiTt6nK2CMBphblNod3jrD2DTYpqQM9oFB3t_Y/edit?usp=sharing
+- Código: Acá :D.
+
+## ¿Qué mas puedo leer, ver o practicar?
+
+### Videos
+
+Video de alf sobre lazy evaluation, 17'
+[![Lazy Evaluation - Por Alf](https://img.youtube.com/vi/wZ0pBezum58/0.jpg)](https://youtu.be/wZ0pBezum58 "Lazy Evaluation - Por Alf")
+
+Estructuras de datos infinitas, de Computerphile
+[![To infinity and beyond](https://img.youtube.com/vi/bnRNiE_OVWA/0.jpg)](https://youtu.be/bnRNiE_OVWA "To infinity and beyond")
