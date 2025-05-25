@@ -137,7 +137,7 @@ obtenerHabilidad nuevaHabilidad criatura = criatura { habilidad = nuevaHabilidad
 type Combatientes = (Criatura, Criatura)
 
 tirarseHabilidades :: Combatientes -> Combatientes
-tirarseHabilidades (criatura, otraCriatura) = (habilidad criatura otraCriatura, habilidad otraCriatura criatura)
+tirarseHabilidades (criatura, otraCriatura) = (habilidad otraCriatura criatura, habilidad criatura otraCriatura)
 
 atacarse :: Combatientes -> Combatientes
 atacarse (criatura, otraCriatura) = (criatura `recibirAtaqueDe` otraCriatura, otraCriatura `recibirAtaqueDe` criatura)
@@ -146,12 +146,12 @@ recibirAtaqueDe :: Criatura -> Criatura -> Criatura
 recibirAtaqueDe defensor atacante = disminuirResistencia (fuerza atacante) defensor
 
 resolverCombate :: Combatientes -> Criatura
-resolverCombate (criatura, otraCriatura)
-    | resistencia criatura > resistencia otraCriatura = obtenerHabilidad (habilidad otraCriatura) criatura
+resolverCombate (criaturaCombatida, criatura)
+    | resistencia criatura > resistencia criaturaCombatida = obtenerHabilidad (habilidad criaturaCombatida) criatura
     | otherwise = criatura
 
 combatir :: Criatura -> Entrenamiento
-combatir criatura otraCriatura = resolverCombate . atacarse . tirarseHabilidades $ (criatura, otraCriatura)
+combatir criaturaACombatir criatura = resolverCombate . atacarse . tirarseHabilidades $ (criaturaACombatir, criatura)
 
 -- Punto 4
 -- a)
