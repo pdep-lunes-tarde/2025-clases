@@ -1,11 +1,7 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Eta reduce" #-}
-{-# HLINT ignore "Use map once" #-}
 module Library where
 import PdePreludat
 import Data.Char (toUpper, isAlpha)
 import Data.List (isPrefixOf, isSuffixOf, sortOn)
-
 
 esVocal :: Char -> Bool
 esVocal letra = toUpper letra `elem` "AEIOUÁÉÍÓÚÜ"
@@ -48,7 +44,6 @@ enSilabas :: String -> [String]
 enSilabas = concatMap palabraEnSilabas . words
 
 -- Punto 1
-
 esGrupoConsonantico :: Char -> Char -> Bool
 esGrupoConsonantico unaConsonante otraConsonante =
     [unaConsonante, otraConsonante] `elem` [
@@ -56,7 +51,6 @@ esGrupoConsonantico unaConsonante otraConsonante =
     ]
 
 -- Punto 2
-
 data Criatura = Criatura {
     nombre :: String,
     tipo :: TipoCriatura,
@@ -111,13 +105,11 @@ lazyEvaluation :: Habilidad
 lazyEvaluation criatura = criatura { habilidad = id }
 
 -- Punto 3
-
 type Entrenamiento = Criatura -> Criatura
 
 -- a
 darAlas :: Entrenamiento
 darAlas = cambiarTipoA Aereo
-
 
 -- b
 descansar :: Number -> Entrenamiento
@@ -172,7 +164,6 @@ none :: (a -> Bool) -> [a] -> Bool
 none condition list = not . any condition $ list
 
 --b)
-
 esAerea :: Criatura -> Bool
 esAerea criatura = tipo criatura == Aereo
 
@@ -204,7 +195,6 @@ terminaConAlguno sufijos palabra = any (`isSuffixOf` palabra) sufijos
 
 -- Punto 5
 -- a)
-
 dropEnd :: Number -> [a] -> [a]
 dropEnd n = reverse . drop n . reverse
 
