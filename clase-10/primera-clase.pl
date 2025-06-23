@@ -59,6 +59,11 @@ sonColegas(UnaPersona, OtraPersona):-
     programaEn(OtraPersona, UnLenguaje),
     UnaPersona \= OtraPersona.
 
+compartenLenguaje(UnaPersona, OtraPersona, UnLenguaje):-
+    programaEn(UnaPersona, UnLenguaje),
+    programaEn(OtraPersona, UnLenguaje),
+    UnaPersona \= OtraPersona.
+
 % Queremos implementar si una persona puede aprender un lenguaje de otra. Esto se cumple cuando la primera no programa en ese lenguaje y la segunda sí.
 
 % ¿poner el lenguaje como parametro?
@@ -87,3 +92,16 @@ test(si_alguien_no_es_humano_ni_fatiga_no_es_mortal):-
 
 :- end_tests(clase1).
 
+lenguajeExclusivo(UnaPersona, OtraPersona, Lenguaje):-
+    programaEn(UnaPersona, Lenguaje),
+    not(programaEn(OtraPersona, Lenguaje)).
+lenguajeExclusivo(UnaPersona, OtraPersona, Lenguaje):-
+    programaEn(OtraPersona, Lenguaje),
+    not(programaEn(UnaPersona, Lenguaje)).
+
+% es la unica persona que programa en lenguaje
+irreemplazable(UnaPersona, Lenguaje):-
+    programaEn(UnaPersona, Lenguaje),
+    not(
+        compartenLenguaje(UnaPersona, _, Lenguaje)
+    ).
