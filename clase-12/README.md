@@ -6,6 +6,8 @@
 - Código: Acá :D.
 - Enunciado que usamos en clase para practicar: https://docs.google.com/document/d/e/2PACX-1vRIfxqGxUsFMHgebdAdP9sUceDxWBr1w8yuF6pYlmuK3IUzqNwjne5EqjwErzq7y2cEo1DRLEVuC-rn/pub
 
+<img src="https://github.com/user-attachments/assets/f4d65250-79fe-41ea-a78a-024a9798a581" width=400/>
+
 ## ¿Qué hay para la clase que viene?
 
 TP-3: https://classroom.github.com/a/t2lgTXWY
