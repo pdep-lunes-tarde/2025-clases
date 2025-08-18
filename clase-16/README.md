@@ -65,8 +65,8 @@ Queremos saber cuál especie fue la favorita del público. Es decir, cuál o cu�
 
 ### 3. Especies por zona
 
-a) Se requiere conocer en qué zonas oceánicas fue descubierta una especie.
-b) También, queremos saber cuál fue la zona oceánica en la que mas descubrimientos se realizaron.
+- a) Se requiere conocer en qué zonas oceánicas fue descubierta una especie.
+- b) También, queremos saber cuál fue la zona oceánica en la que mas descubrimientos se realizaron.
 
 ### 4. Variación de Profundidad del Submarino
 
