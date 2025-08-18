@@ -2,7 +2,7 @@
 
 ## Expedición del Conicet al cañón submarino de Mar del Plata
 
-Contamos con los primeros datos de la expedición que se ralizó en el cañón submarino de Mar del Plata y queremos modelarlos en Prolog para realizar ciertas consultas sobre los mismos. 
+Contamos con los primeros datos de la expedición que se realizó en el cañón submarino de Mar del Plata y queremos modelarlos en Prolog para realizar ciertas consultas sobre los mismos. 
 
 Todos los predicados principales deben ser completamente inversibles.
 
@@ -68,18 +68,22 @@ Queremos saber cuál especie fue la favorita del público. Es decir, cuál o cu�
 - a) Se requiere conocer en qué zonas oceánicas fue descubierta una especie.
 - b) También, queremos saber cuál fue la zona oceánica en la que mas descubrimientos se realizaron.
 
-### 4. Variación de Profundidad del Submarino
+### 4. Promedio de vistas
+
+Se pide calcular cual fue el promedio de visualizaciones por hora del stream de la expedición. 
+
+### 5. Variación de Profundidad del Submarino
 
 Dadas dos horas, queremos conocer cual fue la variación de profundidad del submarino SuBastian.
 
 **Nota**: Solo tenemos datos de profundidad respecto de los animales descubiertos, por lo que la profundidad del submarino en cada hora corresponde a la profundidad de los descubrimientos realizados en esa hora.
 
-### 5. Descenso Más Rápido
+### 6. Descenso Más Rápido
 
 Queremos saber en cual rango de 2 horas el submarino realizó el descenso más rápido.
 La velocidad del descenso es la variación de profundidad dividido el tiempo transcurrido.
 
-### 6. Nivel de Novedad
+### 7. Nivel de Novedad
 
 Queremos conocer el nivel de novedad de un descubrimiento, lo cual se calcula como la sumatoria de unidades de conocimiento que proporciona cada característica observada.
 
