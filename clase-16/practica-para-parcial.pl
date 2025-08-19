@@ -88,7 +88,16 @@ cantidad_de_descubrimientos(Zona, Cantidad):-
     findall(Zona, descubierta_en(_, Zona), Zonas),
     length(Zonas, Cantidad).
 
-%% 4. Variación de Profundidad del Submarino
+%% 4. Promedio de vistas
+
+promedio_de_vistas(Promedio):-
+    findall(Cantidad, vistas(_, Cantidad), Cantidades),
+    sum_list(Cantidades, TotalDeVistas),
+    length(Cantidades, CantidadDeHoras),
+    Promedio is TotalDeVistas / CantidadDeHoras.
+    
+
+%% 5. Variación de Profundidad del Submarino
 %% Dadas dos horas, queremos conocer cual
 %% fue la variación de profundidad del submarino SuBastian.
 
@@ -212,6 +221,9 @@ test(la_variacion_de_profundidad_del_submarino_entre_dos_horas_es_cuantos_metros
 
 test(la_velocidad_de_descenso_del_submarino_entre_dos_horas_es_cuantos_metros_bajo_entre_esas_horas_dividido_por_la_diferencia_de_horas):-
     velocidad_de_descenso(07, 21, 28.571428571428573).
+
+test(el_promedio_de_vistas_es_la_suma_de_todas_las_vistas_por_hora_dividido_la_cantidad_de_horas_que_duro_el_stream):-
+    promedio_de_vistas(8210.416666666666).
 
 test(el_descenso_mas_rapido_es_aquel_en_el_que_se_descendieron_mas_metros_en_menos_tiempo):-
     descenso_mas_rapido(16, 17, 600).
