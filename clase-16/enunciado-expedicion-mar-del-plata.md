@@ -41,8 +41,8 @@ Contamos con estos datos:
 | d2 | anemona | extremidades: 35 | 2200 | 16 | recolectado |
 | c2 | pepino_pelagico | transparente, luminisciencia | 2800 | 17 | recolectado |
 | e1 | pez_linterna | luminisciencia, color: rojo | 3200 | 19 | observado |
-| a2 | pulpo_de_cristal | transparente, fragil | 3800 | 21 | recolectado |
-| a3 | pulpo_dumbo | extremidades: 10, color: gris | 3900 | 23 | observado |
+| a3 | pulpo_de_cristal | transparente, fragil | 3800 | 21 | recolectado |
+| a4 | pulpo_dumbo | extremidades: 10, color: gris | 3900 | 23 | observado |
 
 ### Clasificación de Zonas Oceánicas
 
@@ -70,13 +70,13 @@ b) También, queremos saber cuál fue la zona oceánica en la que mas descubrimi
 
 ### 4. Variación de Profundidad del Submarino
 
-Dadas dos horas, queremos conocer cual fue la variación de profundidad del submarino SuBastian.
+Dado un rango de horas, queremos conocer cual fue la variación de profundidad del submarino SuBastian.
 
 **Nota**: Solo tenemos datos de profundidad respecto de los animales descubiertos, por lo que la profundidad del submarino en cada hora corresponde a la profundidad de los descubrimientos realizados en esa hora.
 
 ### 5. Descenso Más Rápido
 
-Queremos saber en cual rango de 2 horas el submarino realizó el descenso más rápido.
+Queremos saber en cual rango de horas el submarino realizó el descenso más rápido.
 La velocidad del descenso es la variación de profundidad dividido el tiempo transcurrido.
 
 ### 6. Nivel de Novedad
