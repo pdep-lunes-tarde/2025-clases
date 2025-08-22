@@ -47,7 +47,7 @@ zona_oceanica(hadal).
 zona(Profundidad, fotica):- between(0, 610, Profundidad).
 zona(Profundidad, batial):- between(1000, 3999, Profundidad).
 zona(Profundidad, abisal):- between(4000, 5999, Profundidad).
-zona(Profundidad, hadal):- between(6000, inf, Profundidad).
+zona(Profundidad, hadal):- Profundidad >= 6000.
 
 %% 2 
 %% Queremos saber cuál especie fue la favorita del público.
@@ -105,7 +105,7 @@ promedio_de_vistas(Promedio):-
 %% animales descubiertos, por lo que la profundidad del submarino
 %% en cada hora corresponde a la profundidad de los descubrimientos realizados en esa hora.
 
-variacion_de_profundidad(HoraInicial, HoraFinal, Variacion):-
+variacion_de_profundidad(rango(HoraInicial, HoraFinal), Variacion):-
     descubrimiento(_, _, _, ProfundidadInicial, HoraInicial, _),
     descubrimiento(_, _, _, ProfundidadFinal, HoraFinal, _),
     HoraInicial < HoraFinal,
@@ -113,18 +113,18 @@ variacion_de_profundidad(HoraInicial, HoraFinal, Variacion):-
 
 %% 5. Descenso Más Rápido
 
-%% Queremos saber en cual rango de 2 horas el submarino realizó el descenso más rápido.
+%% Queremos saber en cual rango de horas el submarino realizó el descenso más rápido.
 %% La velocidad del descenso es la variación de profundidad dividido el tiempo transcurrido.
 
-velocidad_de_descenso(HoraInicial, HoraFinal, VelocidadDeDescenso):-
-    variacion_de_profundidad(HoraInicial, HoraFinal, VariacionDeProfundidad),
+velocidad_de_descenso(rango(HoraInicial, HoraFinal), VelocidadDeDescenso):-
+    variacion_de_profundidad(rango(HoraInicial, HoraFinal), VariacionDeProfundidad),
     DiferenciaDeHoras is HoraFinal - HoraInicial,
     VelocidadDeDescenso is VariacionDeProfundidad / DiferenciaDeHoras.
 
-descenso_mas_rapido(HoraInicial, HoraFinal, VelocidadMaxima):-
-    velocidad_de_descenso(HoraInicial, HoraFinal, VelocidadMaxima),
-    forall((velocidad_de_descenso(OtraHoraInicial, OtraHoraFinal, OtraVelocidad),
-            (HoraInicial, HoraFinal) \= (OtraHoraInicial, OtraHoraFinal)),
+descenso_mas_rapido(RangoDeHoras, VelocidadMaxima):-
+    velocidad_de_descenso(RangoDeHoras, VelocidadMaxima),
+    forall((velocidad_de_descenso(OtroRangoDeHoras, OtraVelocidad),
+            RangoDeHoras \= OtroRangoDeHoras),
             VelocidadMaxima >= OtraVelocidad).
 
 %% ### 6. Nivel de Novedad
@@ -154,8 +154,6 @@ caracteristica_registrada(luminisciencia, 5).
 caracteristica_registrada(extremidades(Cantidad), Cantidad).
 caracteristica_registrada(color(Color), 5):-
     color_peligroso(Color).
-caracteristica_registrada(color(Color), 3):-
-    not(color_peligroso(Color)).
 caracteristica_registrada(color(Color), 3):-
     not(color_peligroso(Color)).
 
@@ -217,16 +215,16 @@ test(la_zona_en_que_fue_descubierta_una_especie_depende_de_la_profundidad_en_la_
     descubierta_en(estrella, batial).
 
 test(la_variacion_de_profundidad_del_submarino_entre_dos_horas_es_cuantos_metros_bajo_entre_esas_horas):-
-    variacion_de_profundidad(07, 21, 400).
+    variacion_de_profundidad(rango(07, 21), 400).
 
 test(la_velocidad_de_descenso_del_submarino_entre_dos_horas_es_cuantos_metros_bajo_entre_esas_horas_dividido_por_la_diferencia_de_horas):-
-    velocidad_de_descenso(07, 21, 28.571428571428573).
+    velocidad_de_descenso(rango(07, 21), 28.571428571428573).
 
 test(el_promedio_de_vistas_es_la_suma_de_todas_las_vistas_por_hora_dividido_la_cantidad_de_horas_que_duro_el_stream):-
     promedio_de_vistas(8210.416666666666).
 
 test(el_descenso_mas_rapido_es_aquel_en_el_que_se_descendieron_mas_metros_en_menos_tiempo):-
-    descenso_mas_rapido(16, 17, 600).
+    descenso_mas_rapido(rango(16, 17), 600).
 
 test(la_luminisciencia_da_5_unidades_de_conocimiento, nondet):-
     unidades_de_conocimiento(luminisciencia, 5).
