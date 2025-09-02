@@ -1,0 +1,16 @@
+import src.clase1.pepita
+test "la energia inicial de pepita es 100" {
+    assert.equals(100, pepita.energia())
+}
+
+test "comer hace que pepita aumente su energia en la cantidad de gramos comidos * 2" {
+    pepita.come(3)
+
+    assert.equals(106, pepita.energia())
+}
+
+test "al volar gasta 5 joules de energía por cada kilómetro volado, más 40 joules para comenzar a volar" {
+    pepita.vola(2)
+
+    assert.equals(50, pepita.energia())
+}

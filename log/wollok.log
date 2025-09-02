@@ -1,0 +1,57 @@
+{"level":"info","message":"⌛ Inferring types","timeElapsed":739,"timestamp":"2025-09-01T13:36:19.806Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":589,"timestamp":"2025-09-01T13:36:24.316Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":581,"timestamp":"2025-09-01T13:36:24.928Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":580,"timestamp":"2025-09-01T13:36:25.542Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":583,"timestamp":"2025-09-01T13:36:26.206Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":588,"timestamp":"2025-09-01T13:36:26.823Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":660,"timestamp":"2025-09-01T13:36:27.517Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":578,"timestamp":"2025-09-01T13:36:28.127Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":589,"timestamp":"2025-09-01T13:36:28.747Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":568,"timestamp":"2025-09-01T13:36:29.352Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":601,"timestamp":"2025-09-01T13:36:29.981Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":589,"timestamp":"2025-09-01T13:36:30.600Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":583,"timestamp":"2025-09-01T13:36:31.212Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":585,"timestamp":"2025-09-01T13:36:31.874Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":658,"timestamp":"2025-09-01T13:36:32.585Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":650,"timestamp":"2025-09-01T13:36:33.273Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":610,"timestamp":"2025-09-01T13:36:33.913Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":598,"timestamp":"2025-09-01T13:36:34.547Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":373,"timestamp":"2025-09-01T13:36:35.154Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":353,"timestamp":"2025-09-01T13:36:35.535Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":351,"timestamp":"2025-09-01T13:36:35.960Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":350,"timestamp":"2025-09-01T13:36:36.336Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":430,"timestamp":"2025-09-01T13:36:36.808Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":384,"timestamp":"2025-09-01T13:36:37.220Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":356,"timestamp":"2025-09-01T13:36:37.658Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":368,"timestamp":"2025-09-01T13:36:38.052Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":360,"timestamp":"2025-09-01T13:36:38.439Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":362,"timestamp":"2025-09-01T13:36:38.828Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":354,"timestamp":"2025-09-01T13:36:39.210Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":368,"timestamp":"2025-09-01T13:36:39.606Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":347,"timestamp":"2025-09-01T13:36:40.030Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":363,"timestamp":"2025-09-01T13:36:40.424Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":356,"timestamp":"2025-09-01T13:36:40.814Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":364,"timestamp":"2025-09-01T13:36:41.216Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":361,"timestamp":"2025-09-01T13:36:41.601Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":346,"timestamp":"2025-09-01T13:36:41.975Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":105,"timestamp":"2025-09-01T13:36:42.588Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":413,"timestamp":"2025-09-01T13:36:42.588Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":411,"timestamp":"2025-09-01T13:36:43.029Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":392,"timestamp":"2025-09-01T13:36:43.449Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":217,"timestamp":"2025-09-01T13:36:43.880Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":120,"timestamp":"2025-09-01T13:36:45.178Z"}
+{"level":"info","message":"Removing diagnostics from /c:/Users/juanm/Documents/Development/proyectos/pdep/2025-clases/clase-18/src/tp0.wtest","timestamp":"2025-09-01T13:36:50.155Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":137,"timestamp":"2025-09-01T14:46:48.775Z"}
+{"level":"error","message":"✘ Failed to rebuild document Missing workspace folder!","stack":"Error: Missing workspace folder!\n    at JF (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:2393:7332)\n    at F3.invoke (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:3:157334)\n    at o.fire (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:3:158104)\n    at c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:37:57488\n    at Zr (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:8:1561)\n    at qt (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6224)\n    at ot (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6378)\n    at Immediate._onImmediate (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6142)\n    at process.processImmediate (node:internal/timers:485:21)","timestamp":"2025-09-01T14:46:48.780Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":192,"timestamp":"2025-09-01T17:55:19.026Z"}
+{"level":"error","message":"✘ Failed to rebuild document Missing workspace folder!","stack":"Error: Missing workspace folder!\n    at JF (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:2393:7332)\n    at F3.invoke (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:3:157334)\n    at o.fire (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:3:158104)\n    at c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:37:57488\n    at Zr (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:8:1561)\n    at qt (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6224)\n    at ot (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6378)\n    at Immediate._onImmediate (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6142)\n    at process.processImmediate (node:internal/timers:485:21)","timestamp":"2025-09-01T17:55:19.033Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":193,"timestamp":"2025-09-01T17:55:19.464Z"}
+{"level":"info","message":"⌛ Validating clase-18/src/deepThought.wlk","timeElapsed":123,"timestamp":"2025-09-01T17:55:19.590Z"}
+{"level":"info","message":"⌛ Validating clase-18/src/deepThought.wlk","timeElapsed":111,"timestamp":"2025-09-01T17:55:20.212Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":111,"timestamp":"2025-09-01T17:55:23.982Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":119,"timestamp":"2025-09-01T17:55:24.240Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":137,"timestamp":"2025-09-01T17:55:24.240Z"}
+{"level":"info","message":"⌛ Inferring types","timeElapsed":120,"timestamp":"2025-09-01T17:55:24.428Z"}
+{"level":"info","message":"⌛ Validating clase-18/src/clase1.wlk","timeElapsed":122,"timestamp":"2025-09-01T17:55:24.552Z"}
+{"level":"info","message":"Removing diagnostics from /c:/Users/juanm/Documents/Development/proyectos/pdep/2025-clases/clase-18/src/deepThought.wlk","timestamp":"2025-09-01T17:55:24.553Z"}
+{"level":"error","message":"✘ Failed to get type description: Error: No type variable for node clase-18.src.clase1 [Package]{d9e7f5} at clase-18/src/clase1.wlk:-- No type variable for node clase-18.src.clase1 [Package]{d9e7f5} at clase-18/src/clase1.wlk:--","stack":"Error: No type variable for node clase-18.src.clase1 [Package]{d9e7f5} at clase-18/src/clase1.wlk:--\n    at X8.getType (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:2345:8884)\n    at get type (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:38:12368)\n    at c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:2393:790\n    at c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:2393:8440\n    at c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:37:74770\n    at Ye (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:8527)\n    at qt (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6189)\n    at ot (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6378)\n    at Immediate._onImmediate (c:\\Users\\juanm\\.vscode\\extensions\\uqbar.wollok-lsp-ide-0.5.3\\out\\server\\src\\server.js:7:6142)\n    at process.processImmediate (node:internal/timers:485:21)","timestamp":"2025-09-01T17:55:30.467Z"}
