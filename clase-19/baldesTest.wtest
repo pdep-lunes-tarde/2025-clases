@@ -1,0 +1,8 @@
+import baldes.*
+
+describe "clase 19" {
+  test "dos y dos son cuatro" {
+    assert.equals(4, 2+2)
+  }
+
+}
