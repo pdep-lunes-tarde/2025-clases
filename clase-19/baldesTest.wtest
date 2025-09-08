@@ -1,8 +1,85 @@
 import baldes.*
 
 describe "clase 19" {
-  test "dos y dos son cuatro" {
-    assert.equals(4, 2+2)
+  test "un balde con 0 unidades tiene peso 0" {
+    // Arrange
+    const baldeVacio = new Balde(
+      pesoUnitario = 10,
+      unidades = 0,
+      pesoMaximo = 1000
+    )
+
+    // Act
+    // nada que hacer
+
+    // Assert
+    assert.equals(0, baldeVacio.pesoAlmacenado())
+  }
+
+  test "si agrego N unidades a un balde vacío,
+  su peso pasa a ser N * PU" {
+    // Arrange -> definición del estado actual del programa
+    const balde = new Balde(
+      pesoUnitario = 10,
+      unidades = 0,
+      pesoMaximo = 1000
+    )
+
+    // Act -> la acción en concreto que se produce
+    balde.agregarUnidades(5)
+
+    // Assert -> estado final esperado del programa
+    assert.equals(50, balde.pesoAlmacenado())
+  }
+
+  test "si saco M unidades a un balde con N unidades,
+  su peso pasa a ser (N-M) * PU" {
+    // Arrange
+    const balde = new Balde(
+      pesoUnitario = 10,
+      unidades = 10,
+      pesoMaximo = 1000
+    )
+
+    // Act
+    balde.sacarUnidades(5)
+
+    // Assert
+    assert.equals(50, balde.pesoAlmacenado())
+  }
+
+  test "si quiero agregar unidades por encima
+  del peso máximo, no sucede nada" {
+    // Arrange
+    const balde = new Balde(
+      pesoUnitario = 10,
+      unidades = 0,
+      pesoMaximo = 1000
+    )
+    const pesoActual = balde.pesoAlmacenado()
+
+    // Act
+    balde.agregarUnidades(101)
+
+    // Assert
+    assert.equals(pesoActual, balde.pesoAlmacenado())
+  }
+
+  test "si quiero sacar unidades tales que
+  quedaría con menos de 0, no sucede nada" {
+    // Arrange
+    const balde = new Balde(
+      pesoUnitario = 10,
+      unidades = 100,
+      pesoMaximo = 1000
+    )
+    const pesoActual = balde.pesoAlmacenado()
+
+    // Act
+    balde.sacarUnidades(101)
+
+    // Assert (validamos que no cambió el peso)
+    assert.equals(pesoActual, balde.pesoAlmacenado())
   }
 
 }
