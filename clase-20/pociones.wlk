@@ -112,27 +112,35 @@ class Pocion {
     method ingredientes() {
         return ingredientes
     }
+
+    method afectar(alquimista) {
+        ingredientes.forEach({
+            ingrediente => ingrediente.afectar(alquimista)
+        })
+    }
+
+    method destilar() {
+        // filter es de consulta
+        // ingredientes = ingredientes.filter({
+        //     ingrediente => ingrediente.rareza() > 5
+        // })
+        // removeAllSuchThat es de efecto
+        ingredientes.removeAllSuchThat({
+            ingrediente => ingrediente.rareza() <= 5
+        })
+    }
 }
 
 class Alquimista {
-    var salud
-    var suerte
+    // property genera automáticamente getters y setters
+    var property salud
+    var property suerte
+    // var ventas = []
+    // var unSet = #{}
+    // (cliente, [pociones])
+    var ventas = new Dictionary()
 
-    method tomarPocion(pocion) {
-        pocion.ingredientes()
-    }
-    method salud() {
-        return salud
-    }
-    method suerte() {
-        return suerte
-    }
-    method salud(nuevaSalud) {
-        salud = nuevaSalud
-    }
-    method suerte(nuevaSuerte) {
-        suerte = nuevaSuerte
-    }
+    
     method aumentarSalud(cantidad) {
         salud += cantidad
     }
@@ -145,11 +153,101 @@ class Alquimista {
     method modificarSalud(bloque) {
         salud = bloque.apply(salud)
     }
+
+    // Versión con lista
+    // method vender(comprador, pocion) {
+    //     ventas.add(new Venta(comprador = comprador, pocion = pocion))
+    // }
+    
+    // Versión con diccionario
+    method vender(comprador, pocion) {
+        if (not ventas.containsKey(comprador)) {
+            ventas.put(comprador, [])
+        }
+        ventas.get(comprador).add(pocion)
+    }
+
+    // Con lista
+    // method compradores() {
+    //     return ventas.map({venta => venta.comprador()}).asSet()
+    // }
+
+    // Con diccionario
+    method compradores() {
+        return ventas.keys()
+    }
+
+    method cantidadDeClientes() {
+        return self.compradores().size()
+    }
+
+    // Con lista
+    // method esGourmet() {
+    //     return ventas.all({venta => venta.pocion().rareza() > 5})
+    // }
+
+    // Con diccionario
+    method esGourmet() {
+        return self.pocionesVendidas().all({
+            pocion => pocion.rareza() > 5
+        })
+    }
+
+    method pocionesVendidas() {
+        return ventas.values().flatten()
+    }
+
+    // Con lista
+    // method cuantoCompro(cliente) {
+    //     return ventas.count({
+    //         venta => venta.comprador() == cliente 
+    //     })
+    //     // Es lo mismo
+    //     // return ventas.filter({
+    //     //     venta => venta.comprador() == cliente 
+    //     // }).size()
+    // }
+
+    // Con diccionario
+    method cuantoCompro(cliente) {
+        // Si no encuentra al cliente da una lista vacía
+        const pocionesCompradas = ventas.getOrElse(cliente, {[]})
+        return pocionesCompradas.size()
+    }
+
+    method clienteFavorito() {
+        return self.compradores().max({
+            comprador => self.cuantoCompro(comprador)
+        })
+    }
 }
 
+// Usada solo cuando implementamos las ventas con listas
+class Venta {
+    const comprador
+    const pocion
+
+    method comprador() {
+        return comprador
+    }
+    method pocion() {
+        return pocion
+    }
+}
+
+// 8. Queremos mantener un registro de las ventas de un alquimista.
+// Cuando un alquimista vende una poción, queremos registrar:
+// - A quién se la vendió (que va a ser otro alquimista).
+// - Cuál fue la poción vendida.
+
+// Esta información la queremos poder consultar para saber:
+// - Cuántos clientes tiene.
+// - Si es un alquimista gourmet, que se cumple si sólo vende pociones de rareza mayor a 5.
+// - Cuál es su cliente favorito, que es aquel que compró más pociones.
+
 object duplicador {
-    method apply() {
-        return 2
+    method apply(numero) {
+        return numero * 2
     }
 
     method saludar() {

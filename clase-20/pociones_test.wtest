@@ -1,0 +1,40 @@
+import pociones.*
+
+describe "ingredientes" {
+  test "Un bigote de gato tiene rareza 1" {
+    assert.equals(1, bigoteDeGato.rareza())
+  }
+
+  test "Un trebol de 4 hojas tiene rareza 20" {
+    const trebol = new Trebol(hojas = 4)
+    assert.equals(20, trebol.rareza())
+  }
+
+  test "Un trebol que no tiene 4 hojas tiene rareza 1" {
+    const trebol = new Trebol(hojas = 3)
+    assert.equals(1, trebol.rareza())
+  }
+
+  test "Una hiedra venenosa tiene rareza igual a su concentracion de veneno" {
+    const concentracion = 5
+    const hiedra = new HiedraVenenosa(concentracionDeVeneno = concentracion)
+    assert.equals(concentracion, hiedra.rareza())
+  }
+}
+
+describe "pociones" {
+    test "Al agregar ingredientes a una poción aumenta la cantidad" {
+    const pocion = new Pocion()
+    pocion.agregarIngrediente(bigoteDeGato)
+    assert.equals(1, pocion.cantidadDeIngredientes())
+  }
+
+  test "La rareza de una poción es el promedio de la rareza de sus ingredientes" {
+    const hiedra = new HiedraVenenosa(concentracionDeVeneno = 5)
+    const pocion = new Pocion()
+    pocion.agregarIngrediente(hiedra)
+    pocion.agregarIngrediente(bigoteDeGato)
+
+    assert.equals(3, pocion.rareza())
+  }
+}
