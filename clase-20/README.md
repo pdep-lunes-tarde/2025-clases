@@ -4,11 +4,11 @@
 
 - Código: Acá :D.
 - Enunciado del ejercicio: https://docs.google.com/document/d/1a4PVfy2C--c5lwv4lf8YSHUFw1SGF6zTTZhHnTH697s/edit?usp=drive_link
-- Slides: 
+- Slides: https://docs.google.com/presentation/d/15nckjnx1J0cWry5Oi0oybzv-Ims7iw6bfb3ZPV8DLiQ/edit?usp=sharing
 
 ## Para la clase que viene
 
-TP corto 3: 
+TP corto 3: https://classroom.github.com/a/wbhcCVsC
 
 ## ¿Qué mas puedo leer, ver o practicar?
 
