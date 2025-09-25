@@ -1,0 +1,4 @@
+import juegoSnake.juegoSnake
+program juego {
+    juegoSnake.jugar()
+}

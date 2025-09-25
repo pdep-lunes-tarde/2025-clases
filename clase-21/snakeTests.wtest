@@ -1,0 +1,69 @@
+import snake.*
+import wollok.game.*
+import juegoSnake.*
+
+describe "snake" {
+    test "si no tiene direccion, su posicion se mantiene igual al moverse" {
+        const posicionInicial = snake.position()
+
+        snake.move()
+
+        assert.equals(posicionInicial, snake.position())
+    }
+    test "si se esta moviendo a la derecha, al moverse aumenta en 1 su posicion" {
+        snake.direccion(derecha)
+
+        snake.move()
+
+        assert.equals(new Position(x=11, y=10), snake.position())
+    }
+    test "si esta en el borde derecho de la pantalla y se mueve a la derecha, deberia salir por el borde izquierdo de la misma" {
+        const posicionInicial = new Position(x=juegoSnake.ancho(), y=1)
+        snake.position(posicionInicial)
+        snake.direccion(derecha)
+
+        snake.move()
+
+        assert.equals(new Position(x=0, y=1), snake.position())
+    }
+    test "si esta en el borde izquierdo de la pantalla y se mueve a la izquierda, deberia salir por el borde derecho de la misma" {
+        const posicionInicial = new Position(x=0, y=1)
+        snake.position(posicionInicial)
+        snake.direccion(izquierda)
+
+        snake.move()
+
+        assert.equals(new Position(x=juegoSnake.ancho(), y=1), snake.position())
+    }
+    test "si esta en el borde inferior de la pantalla y se mueve hacia abajo, deberia salir por el borde superior de la misma" {
+        const posicionInicial = new Position(x=2, y=0)
+        snake.position(posicionInicial)
+        snake.direccion(abajo)
+
+        snake.move()
+
+        assert.equals(new Position(x=2, y=juegoSnake.alto()), snake.position())
+    }
+
+    test "si esta en el borde superior de la pantalla y se mueve hacia arriba, deberia salir por el borde inferior de la misma" {
+        const posicionInicial = new Position(x=2, y=juegoSnake.alto())
+        snake.position(posicionInicial)
+        snake.direccion(arriba)
+
+        snake.move()
+
+        assert.equals(new Position(x=2, y=0), snake.position())
+    }
+
+    test "si esta a uno del borde superior de la pantalla y se mueve hacia arriba, deberia quedar en el borde superior" {
+        const posicionInicial = new Position(x=2, y=juegoSnake.alto() - 1)
+        snake.position(posicionInicial)
+        snake.direccion(arriba)
+
+        snake.move()
+
+        assert.equals(new Position(x=2, y=juegoSnake.alto()), snake.position())
+    }
+    // si se estaba moviendo hacia una direccion, no deberia girar en sentido opuesto
+ 
+}

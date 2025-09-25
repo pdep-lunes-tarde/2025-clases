@@ -1,0 +1,8 @@
+{
+  "name": "wollok-game",
+  "version": "1.0.0",
+  "resourceFolder": "assets",
+  "wollokVersion": "4.0.0",
+  "author": "juanm",
+  "license": "ISC"
+}
