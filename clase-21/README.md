@@ -4,7 +4,7 @@
 
 TP integrador: https://classroom.github.com/a/tJFnamIl
 
-TP-Juego: 
+TP-Juego: https://classroom.github.com/a/LF1OjFY3
 
 ## Más para ver/leer/practicar
 
