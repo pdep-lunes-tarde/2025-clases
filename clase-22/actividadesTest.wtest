@@ -1,0 +1,46 @@
+import actividades.*
+
+describe "Actividades" {
+    test "escuchar musica hace que un estudiante deje de estar estreado" {
+        const estudianteEstresado = new Estudiante(estresado=true)
+        
+        escucharMusica.hacerse(estudianteEstresado)
+
+        assert.equals(false, estudianteEstresado.estresado())
+    }
+
+    test "tomar cafe aumenta la energia de un estudiante en 30" {
+        const estudiante = new Estudiante(energia=10)
+
+        new TomarCafe(cafeina=50).hacerse(estudiante)
+
+        assert.equals(40, estudiante.energia())
+    }
+
+    test "tomar cafe con mas de 200 de cafeina lo estresa" {
+        const estudiante = new Estudiante(energia=10, estresado = false)
+
+        new TomarCafe(cafeina=201).hacerse(estudiante)
+
+        assert.equals(true, estudiante.estresado())
+    }
+
+    test "tomar cafe con menos o igual de 200 de cafeina no lo estresa" {
+        const estudiante = new Estudiante(energia=10, estresado = false)
+
+        new TomarCafe(cafeina=200).hacerse(estudiante)
+
+        assert.equals(false, estudiante.estresado())
+    }
+
+    test "al hacer su rutina de estudio, el estudiante hace cada una de sus actividades" {
+        const estudianteEstresado = new Estudiante(
+            estresado=true,
+            rutinaDeEstudio=[escucharMusica]
+        )
+        
+        estudianteEstresado.hacerRutinaDeEstudio()
+
+        assert.equals(false, estudianteEstresado.estresado())
+    }
+}
