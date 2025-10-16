@@ -1,3 +1,6 @@
+class NotEnoughEnergyException inherits DomainException {}
+class CityIsClosedException inherits DomainException {}
+
 class Ave {
 	var energia // La energía de un ave nunca va a superar 100.
 	var ciudad // Un ave siempre se encuentra en una ciudad.
@@ -5,8 +8,9 @@ class Ave {
 	// Un ave no debería poder volar a una ciudad si no le alcanza la energía para hacerlo.
 	// Siempre luego de volar, el ave está en la ciudad destino y con menos energía por el viaje realizado
 	method volarA(otraCiudad) {
-	    energia -= ciudad.distanciaHasta(otraCiudad)
-	    ciudad = otraCiudad
+		self.validarQuePuedeVolarA(otraCiudad)
+		energia -= self.energiaRequeridaParaVolarA(otraCiudad)
+		ciudad = otraCiudad
 	}
 
 	// Un ave no debería poder transportar algo a una ciudad si no le alcanza la energía para hacerlo.
@@ -19,11 +23,18 @@ class Ave {
 		ciudad.dar(productoATransportar)
 	}
 
+	method validarQuePuedeVolarA(otraCiudad) {
+		const energiaNecesariaParaVolar = self.energiaRequeridaParaVolarA(otraCiudad)
+		if(energia < energiaNecesariaParaVolar) {
+			throw new NotEnoughEnergyException(message="Energia insuficiente")
+		}
+	}
+
 	method energiaRequeridaParaVolarA(otraCiudad) = ciudad.distanciaHasta(otraCiudad)
 	method energia() = energia
 	method ciudad() = ciudad
 	method descansar() {
-		energia += 20
+		energia = (energia + 20).min(100)
 	}
 }
 

@@ -1,0 +1,22 @@
+test "test que falla" {
+    assert.fail("Este test falló :(")
+}
+
+test "test que pasa" {
+    // este test salió bien :)
+}
+
+test "mandarle mensaje a miObjeto falla" {
+    // ¿como testeamos esto?
+    miObjeto.mensaje()
+}
+
+class MiExcepcion inherits Exception {
+
+}
+
+object miObjeto {
+    method mensaje() {
+        throw new MiExcepcion(message="¡Uy, no!")
+    }
+}

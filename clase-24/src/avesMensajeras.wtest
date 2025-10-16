@@ -18,7 +18,19 @@ test "no puede volar a una ciudad para la que necesitaria mas energia de la que 
  const ciudadAzafran = new Ciudad(ubicacion=new Position(x=5, y=5), produccion="azafran")
  const pepita = new Ave(energia=2, ciudad=puebloPaleta)
  
- // ¿Cómo testeamos que el ave no puede volar a la ciudad?
+  try {
+    ...
+  } catch exception: NotEnoughEnergyException {
+    ...
+  } catch exception: CityIsClosedException {
+    ...
+  } then always {
+    ...
+  }
+
+ assert.throwsExceptionWithMessage("Energia insuficiente", { pepita.volarA(ciudadAzafran) })
+ assert.equals(puebloPaleta, pepita.ciudad())
+ assert.equals(2, pepita.energia())
 }
 
 test "al descansar, un ave recupera 20 de energia" {
@@ -35,6 +47,8 @@ test "un ave nunca tiene mas de 100 de energia" {
   const pepita = new Ave(energia=99, ciudad=puebloPaleta)
 
   pepita.descansar()
+
+  assert.equals(100, pepita.energia())
 
   // ¿Cómo testeamos esto?
 }
